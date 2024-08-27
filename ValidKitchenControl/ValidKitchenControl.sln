@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidKitchenControl.WebApi", "ValidKitchenControl\ValidKitchenControl.WebApi.csproj", "{4E622C49-5F96-4A4B-9B3D-F4586D175A46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidKitchenControl.Domain", "ValidKitchenControl.Domain\ValidKitchenControl.Domain.csproj", "{EC03F05D-7273-44CF-A856-5CD391A1DA97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidKitchenControl.Application", "ValidKitchenControl.Application\ValidKitchenControl.Application.csproj", "{756D4275-DB51-4E52-A4C3-A722AFD37651}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidKitchenControl.Infrastructure", "ValidKitchenControl.Infrastructure\ValidKitchenControl.Infrastructure.csproj", "{1713E25E-3898-4640-B90A-C7205A3FA08D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidKitchenControl.Tests", "ValidKitchenControl.Tests\ValidKitchenControl.Tests.csproj", "{A1C7005F-39CB-4633-A4FC-6088EBE265FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E622C49-5F96-4A4B-9B3D-F4586D175A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E622C49-5F96-4A4B-9B3D-F4586D175A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E622C49-5F96-4A4B-9B3D-F4586D175A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E622C49-5F96-4A4B-9B3D-F4586D175A46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC03F05D-7273-44CF-A856-5CD391A1DA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC03F05D-7273-44CF-A856-5CD391A1DA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC03F05D-7273-44CF-A856-5CD391A1DA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC03F05D-7273-44CF-A856-5CD391A1DA97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{756D4275-DB51-4E52-A4C3-A722AFD37651}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{756D4275-DB51-4E52-A4C3-A722AFD37651}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{756D4275-DB51-4E52-A4C3-A722AFD37651}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{756D4275-DB51-4E52-A4C3-A722AFD37651}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1713E25E-3898-4640-B90A-C7205A3FA08D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1713E25E-3898-4640-B90A-C7205A3FA08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1713E25E-3898-4640-B90A-C7205A3FA08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1713E25E-3898-4640-B90A-C7205A3FA08D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C7005F-39CB-4633-A4FC-6088EBE265FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C7005F-39CB-4633-A4FC-6088EBE265FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C7005F-39CB-4633-A4FC-6088EBE265FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C7005F-39CB-4633-A4FC-6088EBE265FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91989BB5-1201-4C74-A4FE-9994ADD104C4}
+	EndGlobalSection
+EndGlobal
