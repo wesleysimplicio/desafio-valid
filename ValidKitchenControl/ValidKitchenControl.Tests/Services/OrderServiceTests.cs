@@ -21,26 +21,26 @@ namespace ValidKitchenControl.Tests.Services
         }
 
         [Fact]
-        public async Task CreateOrderAsync_ShouldCallAddAsync()
+        public async Task CreateAsync_ShouldCallAddAsync()
         {
             // Arrange
             var order = new Order { Id = 1, Item = "Batata Frita", Quantity = 2, Area = "fritos" };
 
-            _mockOrderService.Setup(service => service.CreateOrderAsync(order))
+            _mockOrderService.Setup(service => service.CreateAsync(order))
                 .Returns(async () =>
                 {
                     await _mockOrderRepository.Object.AddAsync(order);
                 });
 
             // Act
-            await _mockOrderService.Object.CreateOrderAsync(order);
+            await _mockOrderService.Object.CreateAsync(order);
 
             // Assert
             _mockOrderRepository.Verify(repo => repo.AddAsync(order), Times.Once);
         }
 
         [Fact]
-        public async Task GetAllOrdersAsync_ShouldReturnAllOrders()
+        public async Task GetAllAsync_ShouldReturnAllOrders()
         {
             // Arrange
             var orders = new List<Order>
@@ -51,11 +51,11 @@ namespace ValidKitchenControl.Tests.Services
 
             _mockOrderRepository.Setup(repo => repo.GetAllAsync()).ReturnsAsync(orders);
 
-            _mockOrderService.Setup(service => service.GetAllOrdersAsync())
+            _mockOrderService.Setup(service => service.GetAllAsync())
                 .Returns(async () => await _mockOrderRepository.Object.GetAllAsync());
 
             // Act
-            var result = await _mockOrderService.Object.GetAllOrdersAsync();
+            var result = await _mockOrderService.Object.GetAllAsync();
 
             // Assert
             Assert.Equal(2, result.Count());

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ValidKitchenControl.Application\ValidKitchenControl.Application.csproj" />
+    <ProjectReference Include="..\ValidKitchenControl.Infrastructure\ValidKitchenControl.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

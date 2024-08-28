@@ -20,19 +20,14 @@ namespace ValidKitchenControl.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrder([FromBody] Order order)
         {
-            if (!new[] { "fritos", "grelhados", "saladas", "bebidas", "sobremesa" }.Contains(order.Area))
-            {
-                return BadRequest("Área inválida.");
-            }
-
-            await _orderService.CreateOrderAsync(order);
+            await _orderService.CreateAsync(order);
             return CreatedAtAction(nameof(CreateOrder), new { id = order.Id }, order);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetOrders()
         {
-            var orders = await _orderService.GetAllOrdersAsync();
+            var orders = await _orderService.GetAllAsync();
             return Ok(orders);
         }
     }

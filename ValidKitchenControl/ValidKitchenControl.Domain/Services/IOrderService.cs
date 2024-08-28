@@ -4,7 +4,8 @@ namespace ValidKitchenControl.Domain.Services
 {
     public interface IOrderService
     {
-        Task CreateOrderAsync(Order order);
-        Task<IEnumerable<Order>> GetAllOrdersAsync();
+        Task CreateAsync(Order order);
+        Task<Order> GetByIdAsync(int id);
+        Task<IEnumerable<Order>> GetAllAsync();
     }
 }

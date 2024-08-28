@@ -1,0 +1,50 @@
+<div class="container mt-5">
+    <h2>Faça um Pedido</h2>
+    <form>
+      <div class="mb-3">
+        <label for="item" class="form-label">Item</label>
+        <input type="text" class="form-control" id="item" placeholder="Digite prato">
+      </div>
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantidade</label>
+        <input type="number" class="form-control" id="quantity" placeholder="Ex: 1">
+      </div>
+      <div class="mb-3">
+        <label for="area" class="form-label">Área</label>
+        <select class="form-select" id="area">
+          <option selected>Selecione a área</option>
+          <option value="fritos">Fritos</option>
+          <option value="grelhados">Grelhados</option>
+          <option value="saladas">Saladas</option>
+          <option value="bebidas">Bebidas</option>
+          <option value="sobremesas">Sobremesas</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar Pedido</button>
+    </form>
+  </div>
+  
+
+  <div class="container mt-5">
+    <h2>Lista de Pedidos</h2>
+  
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Item</th>
+          <th>Quantidade</th>
+          <th>Área</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.id }}</td>
+          <td>{{ order.item }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ order.area }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
