@@ -18,7 +18,7 @@ namespace ValidKitchenControl.Application.Services
         public async Task CreateAsync(Order order)
         {
             var area = await _areaService.GetByNameAsync(order.Area);
-            if(area == null) new Exception("Área inválida.");
+            if (area == null) new Exception("Área inválida.");
 
             // Adiciona lógica de validação ou regras de negócio
             await _orderRepository.AddAsync(order);
@@ -33,6 +33,11 @@ namespace ValidKitchenControl.Application.Services
         {
             return await _orderRepository.GetByIdAsync(id);
 
+        }
+
+        public async Task UpdateAsync(Order updatedOrder)
+        {
+            await _orderRepository.UpdateAsync(updatedOrder);
         }
     }
 }
