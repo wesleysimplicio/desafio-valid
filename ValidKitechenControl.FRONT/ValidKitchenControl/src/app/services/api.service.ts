@@ -17,7 +17,7 @@ export class ApiService {
   // Método para fazer uma requisição GET com headers
   getOrders(): Observable<any> {
     const headers = this.getHeaders();
-    return this.http.get(`${this.baseUrl}/Order`, { headers })
+    return this.http.get(`${this.baseUrl}/Orders`, { headers })
     .pipe(
       catchError(this.handleError) // Adiciona tratamento de erro
     );;
@@ -26,7 +26,7 @@ export class ApiService {
   // Método para fazer uma requisição POST com headers
   addOrder(order: any): Observable<any> {
     const headers = this.getHeaders();
-    return this.http.post(`${this.baseUrl}/Order`, order, { headers });
+    return this.http.post(`${this.baseUrl}/Orders`, order, { headers });
   }
 
   // Configura os headers padrão

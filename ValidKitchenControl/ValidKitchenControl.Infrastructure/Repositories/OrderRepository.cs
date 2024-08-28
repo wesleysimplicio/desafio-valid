@@ -6,7 +6,10 @@ namespace ValidKitchenControl.Infrastructure.Repositories
 {
     public class OrderRepository : IOrderRepository
     {
-        private readonly List<Order> _orders = new();
+        private readonly List<Order> _orders = new()
+        {
+             new Order(1,"Alface",1,"salada"),
+        };
 
         public Task AddAsync(Order order)
         {

@@ -24,6 +24,17 @@ builder.Services.AddSingleton<IOrderRepository, OrderRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configura o CORS para permitir requisições de qualquer origem
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,6 +49,12 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.UseMiddleware<ErrorHandlerMiddleware>();
+
+// Configura o pipeline de requisição HTTP
+app.UseRouting();
+
+// Adiciona middleware CORS
+app.UseCors("AllowAll");
 
 app.MapControllers();
 

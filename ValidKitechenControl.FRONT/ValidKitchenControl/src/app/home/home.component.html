@@ -1,50 +1,66 @@
-<div class="container mt-5">
-    <h2>Faça um Pedido</h2>
-    <form>
+<div class="container mt-4">
+    <h5>Faça seu Pedido</h5>
+    <form [formGroup]="orderForm" (ngSubmit)="addOrder()">
+       
       <div class="mb-3">
-        <label for="item" class="form-label">Item</label>
-        <input type="text" class="form-control" id="item" placeholder="Digite prato">
+        <label for="item" class="form-label">Item:</label>
+        <input id="item" formControlName="item" type="text" class="form-control" />
+        <div *ngIf="orderForm.get('item')?.invalid && orderForm.get('item')?.touched" class="text-danger">
+          <small *ngIf="orderForm.get('item')?.errors?.['required']">Item é obrigatório.</small>
+        </div>
       </div>
+      
       <div class="mb-3">
-        <label for="quantity" class="form-label">Quantidade</label>
-        <input type="number" class="form-control" id="quantity" placeholder="Ex: 1">
+        <label for="quantity" class="form-label">Quantidade:</label>
+        <input id="quantity" formControlName="quantity" type="number" class="form-control" />
+        <div *ngIf="orderForm.get('quantity')?.invalid && orderForm.get('quantity')?.touched" class="text-danger">
+          <small *ngIf="orderForm.get('quantity')?.errors?.['required']">Quantidade é obrigatória.</small>
+          <small *ngIf="orderForm.get('quantity')?.errors?.['min']">Quantidade deve ser pelo menos 1.</small>
+        </div>
       </div>
+      
       <div class="mb-3">
-        <label for="area" class="form-label">Área</label>
-        <select class="form-select" id="area">
-          <option selected>Selecione a área</option>
+        <label for="area" class="form-label">Área:</label>
+        <select id="area" formControlName="area" class="form-select">
+          <option value="">Selecione uma área</option>
           <option value="fritos">Fritos</option>
           <option value="grelhados">Grelhados</option>
           <option value="saladas">Saladas</option>
           <option value="bebidas">Bebidas</option>
-          <option value="sobremesas">Sobremesas</option>
+          <option value="sobremesa">Sobremesa</option>
         </select>
+        <div *ngIf="orderForm.get('area')?.invalid && orderForm.get('area')?.touched" class="text-danger">
+          <small *ngIf="orderForm.get('area')?.errors?.['required']">Área é obrigatória.</small>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Enviar Pedido</button>
+      
+      <button type="submit" class="btn btn-primary" [disabled]="orderForm.invalid">Cadastrar</button>
+      <button type="reset" class="btn btn-danger">Limpar</button>
+
     </form>
   </div>
   
 
-  <div class="container mt-5">
+
+<div class="container mt-5">
     <h2>Lista de Pedidos</h2>
-  
+
     <table class="table table-striped mt-3">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Item</th>
-          <th>Quantidade</th>
-          <th>Área</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let order of orders">
-          <td>{{ order.id }}</td>
-          <td>{{ order.item }}</td>
-          <td>{{ order.quantity }}</td>
-          <td>{{ order.area }}</td>
-        </tr>
-      </tbody>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Item</th>
+                <th>Quantidade</th>
+                <th>Área</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders">
+                <td>{{ order.Id }}</td>
+                <td>{{ order.Item }}</td>
+                <td>{{ order.Quantity }}</td>
+                <td>{{ order.Area }}</td>
+            </tr>
+        </tbody>
     </table>
-  </div>
-  
+</div>
