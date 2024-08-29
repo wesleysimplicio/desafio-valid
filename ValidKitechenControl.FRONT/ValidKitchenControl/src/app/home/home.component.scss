@@ -1,0 +1,22 @@
+.container {
+    max-width: 800px;
+  }
+  
+  .card {
+    border: none;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .list-group-item {
+    font-size: 1.2rem;
+  }
+  
+  .input-group-prepend .btn,
+  .input-group-append .btn {
+    font-size: 1.2rem;
+  }
+  

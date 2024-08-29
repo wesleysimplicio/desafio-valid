@@ -7,12 +7,12 @@ import { bootstrapApplication } from '@angular/platform-browser';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
+
   private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
-
-
 
   // Método para fazer uma requisição GET com headers
   getOrders(): Observable<any> {
@@ -37,10 +37,9 @@ export class ApiService {
     });
   }
 
-  // Método para lidar com erros
+  
   private handleError(error: HttpErrorResponse) {
     console.error('Houve um erro:', error.message);
-    // Adapte o tratamento do erro conforme necessário
     return throwError(() => new Error('Algo deu errado; por favor tente novamente mais tarde.'));
   }
 }

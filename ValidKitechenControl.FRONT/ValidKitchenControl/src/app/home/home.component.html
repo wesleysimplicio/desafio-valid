@@ -1,45 +1,40 @@
-<div class="container mt-4">
-    <h5>Faça seu Pedido</h5>
-    <form [formGroup]="orderForm" (ngSubmit)="addOrder()">
-       
-      <div class="mb-3">
-        <label for="item" class="form-label">Item:</label>
-        <input id="item" formControlName="item" type="text" class="form-control" />
-        <div *ngIf="orderForm.get('item')?.invalid && orderForm.get('item')?.touched" class="text-danger">
-          <small *ngIf="orderForm.get('item')?.errors?.['required']">Item é obrigatório.</small>
-        </div>
-      </div>
-      
-      <div class="mb-3">
-        <label for="quantity" class="form-label">Quantidade:</label>
-        <input id="quantity" formControlName="quantity" type="number" class="form-control" />
-        <div *ngIf="orderForm.get('quantity')?.invalid && orderForm.get('quantity')?.touched" class="text-danger">
-          <small *ngIf="orderForm.get('quantity')?.errors?.['required']">Quantidade é obrigatória.</small>
-          <small *ngIf="orderForm.get('quantity')?.errors?.['min']">Quantidade deve ser pelo menos 1.</small>
-        </div>
-      </div>
-      
-      <div class="mb-3">
-        <label for="area" class="form-label">Área:</label>
-        <select id="area" formControlName="area" class="form-select">
-          <option value="">Selecione uma área</option>
-          <option value="fritos">Fritos</option>
-          <option value="grelhados">Grelhados</option>
-          <option value="saladas">Saladas</option>
-          <option value="bebidas">Bebidas</option>
-          <option value="sobremesa">Sobremesa</option>
-        </select>
-        <div *ngIf="orderForm.get('area')?.invalid && orderForm.get('area')?.touched" class="text-danger">
-          <small *ngIf="orderForm.get('area')?.errors?.['required']">Área é obrigatória.</small>
-        </div>
-      </div>
-      
-      <button type="submit" class="btn btn-primary" [disabled]="orderForm.invalid">Cadastrar</button>
-      <button type="reset" class="btn btn-danger">Limpar</button>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Totem de Autoatendimento</h1>
 
-    </form>
+  <div class="row text-center">
+    <div class="col-md-4 mb-4" *ngFor="let item of items">
+      <div class="card h-100 shadow-sm" (click)="selectItem(item)" style="cursor: pointer;">
+        <div class="card-body">
+          <div class="display-1">{{ item.icon }}</div>
+          <h3 class="card-title mt-3">{{ item.name }}</h3>
+        </div>
+      </div>
+    </div>
   </div>
-  
+
+  <div *ngIf="order.length > 0" class="mt-5">
+    <h2 class="text-center">Pedido Atual</h2>
+    <ul class="list-group">
+      <li *ngFor="let item of order" class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+          <span class="display-4">{{ item.icon }}</span>
+          <span class="ml-3 h5">{{ item.name }}</span>
+        </div>
+        <div class="input-group" style="width: 150px;">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary" (click)="decreaseQuantity(item)">-</button>
+          </div>
+          <input type="text" class="form-control text-center" [value]="item.quantity" readonly>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="increaseQuantity(item)">+</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <button class="btn btn-success btn-lg btn-block mt-4" (click)="finalizeOrder()">Finalizar Pedido</button>
+  </div>
+</div>
 
 
 <div class="container mt-5">
@@ -57,7 +52,7 @@
         <tbody>
             <tr *ngFor="let order of orders">
                 <td>{{ order.Id }}</td>
-                <td>{{ order.Item }}</td>
+                <td>{{getIconByName(order.Item)}} {{ order.Item }}</td>
                 <td>{{ order.Quantity }}</td>
                 <td>{{ order.Area }}</td>
             </tr>

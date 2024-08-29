@@ -18,10 +18,14 @@ namespace ValidKitchenControl.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateOrder([FromBody] Order order)
+        public async Task<IActionResult> CreateOrder([FromBody] Order[] orders)
         {
-            await _orderService.CreateAsync(order);
-            return CreatedAtAction(nameof(CreateOrder), new { id = order.Id }, order);
+            foreach (var order in orders)
+            {
+                await _orderService.CreateAsync(order);
+            }
+
+            return CreatedAtAction(nameof(CreateOrder), new { id = orders[0].Id }, orders);
         }
 
         [HttpGet]
