@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ValidKitchenControl.Application\ValidKitchenControl.Application.csproj" />
     <ProjectReference Include="..\ValidKitchenControl.Domain\ValidKitchenControl.Domain.csproj" />
   </ItemGroup>
 
